@@ -13,16 +13,16 @@ public class MavenTemplateRepository {
         try {
             BufferedReader br = new BufferedReader(new FileReader(args[0]));
 
-            // First line limit of the lawn
+            // The first line is the lawn boundary
             String line = br.readLine();
 
-            // I could use Integer.parseInt(String.valueOf(line.charAt(0))) but it would be longer
+            // I could use Integer.parseInt(String.valueOf(line.charAt(0))) but that would take longer
             String[] split = line.split(" ");
-            // Limits of the lawn
+            // Lawn limits
             int X = Integer.parseInt(split[0]);
             int Y = Integer.parseInt(split[1]);
 
-            // every two lines now are going to be one mower
+            // every two lines will now be a single mower
             while ((line = br.readLine()) != null) {
 
                 // Coordinates of the mower
@@ -34,7 +34,7 @@ public class MavenTemplateRepository {
 
                 // Trip of the mower
                 line = br.readLine();
-                // I retrieve every movement and for each I move the mower
+                // I retrieve each movement and for each I move the mower
                 Arrays.stream(line.split("")).forEach(c ->
                         mower.move(Control.valueOf(c)));
 
